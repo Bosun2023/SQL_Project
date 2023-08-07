@@ -30,6 +30,7 @@ Below, provide the SQL queries you used to clean your data.
 SELECT * FROM all_sessions;
 
 --To convert the data type of column "fullVisitorId" to varying character
+
 ALTER TABLE all_sessions
 	ALTER COLUMN "fullVisitorId" TYPE varchar;
 
