@@ -5,13 +5,14 @@ Answer the following questions and provide the SQL queries used to find the answ
 
 SQL Queries:
 
+```SQL
 SELECT DISTINCT city, country, SUM(total_transaction_revenue) AS total_revenue
 FROM all_sessions
 	WHERE city IS NOT NULL AND country IS NOT NULL
 		GROUP BY city, country
 			HAVING SUM(total_transaction_revenue) IS NOT NULL
 				ORDER BY total_revenue DESC
-				LIMIT 12;
+				LIMIT 12;```
 
 Answer:
 
