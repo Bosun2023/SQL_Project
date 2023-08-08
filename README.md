@@ -44,14 +44,15 @@ Comprehensive cleaning of the data (which includes data profiling, transformatio
 (discuss challenges you faced in the project)
 
 1.  Time Constraints: Completing the project within a given timeframe was a constraint. Balancing thorough data cleaning, analysis, and interpretation while meeting deadlines required efficient time management.
-Data Quality and Completeness: Ensuring data quality was a significant challenge. The data came from diverse sources, leading to inconsistencies, missing values, and inaccuracies. Cleaning and transforming the data to a usable format were crucial but time-consuming tasks.
 
-2.  Data Transformation and Manipulation: Converting data types, renaming columns, and applying transformations required meticulous attention to detail. Ensuring that the right conversions were applied to maintain data integrity was challenging.
+2.  Data Quality and Completeness: Ensuring data quality was a significant challenge. The data came from diverse sources, leading to inconsistencies, missing values, and inaccuracies. Cleaning and transforming the data to a usable format were crucial but time-consuming tasks.
+
+3.  Data Transformation and Manipulation: Converting data types, renaming columns, and applying transformations required meticulous attention to detail. Ensuring that the right conversions were applied to maintain data integrity was challenging.
 Query Complexity: Crafting complex SQL queries for various analysis questions was challenging. Balancing readability and performance while accounting for multiple joins, aggregations, and calculations required careful query design.
 
-3.  Data Integration: Merging data from multiple sources, such as different tables, posed challenges. Matching and aligning data points required careful attention to ensure accurate analysis.
+4.  Data Integration: Merging data from multiple sources, such as different tables, posed challenges. Matching and aligning data points required careful attention to ensure accurate analysis.
 
-4.  Duplicates and Outlier Handling: Addressing duplicates and outliers was necessary to ensure the accuracy of analysis results. Identifying whether duplicates and outliers were genuine data points or errors required domain knowledge and decision-making.
+5.  Duplicates and Outlier Handling: Addressing duplicates and outliers was necessary to ensure the accuracy of analysis results. Identifying whether duplicates and outliers were genuine data points or errors required domain knowledge and decision-making.
 
 ---------------------------
 
