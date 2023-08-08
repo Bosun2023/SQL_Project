@@ -40,7 +40,7 @@ Answer:
 
 SQL Queries:
 
-WITH avg_products_cte AS (
+```SQL WITH avg_products_cte AS (
     SELECT DISTINCT
         city,
         country,
@@ -53,7 +53,7 @@ FROM avg_products_cte
 	WHERE avg_products_ordered IS NOT NULL
 	ORDER BY avg_products_ordered DESC
 		LIMIT 10;
-
+```
 Answer:
 
 "city"	    "country"	        "avg_products_ordered"
