@@ -132,6 +132,8 @@ WITH product_sales AS (
     WHERE session.city IS NOT NULL AND session.country IS NOT NULL
     GROUP BY session.city, session.country, session.v2_product_name, session.channel_grouping
 ),
+
+-- Calculate the total sales quantity for each city and country combination.
 total_sales_by_city_country AS (
     SELECT
         city,
@@ -142,6 +144,8 @@ total_sales_by_city_country AS (
     WHERE session.city IS NOT NULL AND session.country IS NOT NULL
     GROUP BY session.city, session.country
 ),
+
+-- Calculate the distribution of different channel groupings for each city and country combination.
 channel_grouping_distribution AS (
     SELECT
         session.city,
@@ -152,6 +156,9 @@ channel_grouping_distribution AS (
     WHERE session.city IS NOT NULL AND session.country IS NOT NULL
     GROUP BY session.city, session.country, session.channel_grouping
 )
+
+-- Combine the calculated data to provide insights into product sales, channel distribution,
+-- and their relative proportions in terms of the total sales for each city and country.
 SELECT
     ps.city,
     ps.country,
