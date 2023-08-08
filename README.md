@@ -48,7 +48,6 @@ Comprehensive cleaning of the data (which includes data profiling, transformatio
 2.  Data Quality and Completeness: Ensuring data quality was a significant challenge. The data came from diverse sources, leading to inconsistencies, missing values, and inaccuracies. Cleaning and transforming the data to a usable format were crucial but time-consuming tasks.
 
 3.  Data Transformation and Manipulation: Converting data types, renaming columns, and applying transformations required meticulous attention to detail. Ensuring that the right conversions were applied to maintain data integrity was challenging.
-Query Complexity: Crafting complex SQL queries for various analysis questions was challenging. Balancing readability and performance while accounting for multiple joins, aggregations, and calculations required careful query design.
 
 4.  Data Integration: Merging data from multiple sources, such as different tables, posed challenges. Matching and aligning data points required careful attention to ensure accurate analysis.
 
