@@ -80,6 +80,7 @@ Answer:
 
 SQL Queries:
 
+```SQL
 SELECT
     city,
     country,
@@ -88,25 +89,25 @@ FROM all_sessions
 WHERE city IS NOT NULL AND country IS NOT NULL AND v2_product_category IS NOT NULL
 GROUP BY city, country
     LIMIT 13;
-
+```
 
 Answer:
-
-"city"	        "country"	        "product_categories"
-"Adelaide"	    "Australia"	        "Home/Apparel/Men's/Men's-Outerwear/"
-"Ahmedabad"	    "India"	            "Home/Accessories/, Home/Apparel/Men's/Men's-Outerwear/, Home/Apparel/Men's/Men's-T-Shirts/, Home/Bags/, Home/Shop by Brand/Google/, Home/Shop by Brand/YouTube/"
+```
+"city"	        "country"	     "product_categories"
+"Adelaide"	"Australia"	     "Home/Apparel/Men's/Men's-Outerwear/"
+"Ahmedabad"	"India"	            "Home/Accessories/, Home/Apparel/Men's/Men's-Outerwear/, Home/Apparel/Men's/Men's-T-Shirts/, Home/Bags/, Home/Shop by Brand/Google/, Home/Shop by Brand/YouTube/"
 "Akron"	        "United States"	    "Home/Apparel/Men's/"
 "Alexandria"	"Egypt"	            "Home/Apparel/Men's/Men's-T-Shirts/"
-"Amã"	        "Jordan"	        "Home/Bags/"
-"Amsterdam"	    "Netherlands"	    "Home/Accessories/Fun/, Home/Bags/, Home/Drinkware/Mugs and Cups/, Home/Electronics/, Home/Electronics/Flashlights/, Home/Electronics/Power/, Home/Office/, Home/Shop by Brand/Google/, Home/Shop by Brand/YouTube/"
-"Amsterdam"	    "United States"	    "Home/Apparel/Men's/"
-"Ann Arbor"	    "United States"	    "Home/Accessories/, Home/Accessories/Fun/, Home/Accessories/Stickers/, Home/Apparel/, Home/Apparel/Kid's/, Home/Apparel/Kid's/Kids-Youth/, Home/Apparel/Men's/Men's-Outerwear/, Home/Apparel/Men's/Men's-T-Shirts/, Home/Apparel/Women's/, Home/Apparel/Women's/Women's-Outerwear/, Home/Apparel/Women's/Women's-T-Shirts/, Home/Bags/, Home/Clearance Sale/, Home/Electronics/, Home/Electronics/Audio/, Home/Electronics/Electronics Accessories/, Home/Lifestyle/, Home/Limited Supply/Bags/, Home/Nest/Nest-USA/, Home/Shop by Brand/Android/, Home/Shop by Brand/Google/, Home/Shop by Brand/YouTube/"
-"Antwerp"	     "Belgium"	        "Home/Drinkware/, Home/Office/"
-"Appleton"	     "United States"	"Home/Electronics/"
-"Ashburn"	     "United States"	"Home/Accessories/Housewares/, Home/Lifestyle/Fun/"
-"Asuncion"	     "Paraguay"	        "Home/Apparel/Men's/Men's-T-Shirts/"
-"Athens"	     "Greece"	        "Home/Apparel/Men's/Men's-T-Shirts/, Home/Bags/, Home/Shop by Brand/YouTube/"
-
+"Amã"	        "Jordan"	     "Home/Bags/"
+"Amsterdam"	"Netherlands"	    "Home/Accessories/Fun/, Home/Bags/, Home/Drinkware/Mugs and Cups/, Home/Electronics/, Home/Electronics/Flashlights/, Home/Electronics/Power/, Home/Office/, Home/Shop by Brand/Google/, Home/Shop by Brand/YouTube/"
+"Amsterdam"	 "United States"    "Home/Apparel/Men's/"
+"Ann Arbor"	 "United States"    "Home/Accessories/, Home/Accessories/Fun/, Home/Accessories/Stickers/, Home/Apparel/, Home/Apparel/Kid's/, Home/Apparel/Kid's/Kids-Youth/, Home/Apparel/Men's/Men's-Outerwear/, Home/Apparel/Men's/Men's-T-Shirts/, Home/Apparel/Women's/, Home/Apparel/Women's/Women's-Outerwear/, Home/Apparel/Women's/Women's-T-Shirts/, Home/Bags/, Home/Clearance Sale/, Home/Electronics/, Home/Electronics/Audio/, Home/Electronics/Electronics Accessories/, Home/Lifestyle/, Home/Limited Supply/Bags/, Home/Nest/Nest-USA/, Home/Shop by Brand/Android/, Home/Shop by Brand/Google/, Home/Shop by Brand/YouTube/"
+"Antwerp"	  "Belgium"	     "Home/Drinkware/, Home/Office/"
+"Appleton"	  "United States"    "Home/Electronics/"
+"Ashburn"	  "United States"    "Home/Accessories/Housewares/, Home/Lifestyle/Fun/"
+"Asuncion"	  "Paraguay"	     "Home/Apparel/Men's/Men's-T-Shirts/"
+"Athens"	  "Greece"	     "Home/Apparel/Men's/Men's-T-Shirts/, Home/Bags/, Home/Shop by Brand/YouTube/"
+```
 
 ![image] https://github.com/Bosun2023/SQL_Project/assets/129349143/e7676cbc-4b36-40ef-ae2d-58c1103b7e1f 
 
