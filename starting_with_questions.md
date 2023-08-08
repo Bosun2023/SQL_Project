@@ -17,7 +17,7 @@ FROM all_sessions
 
 Answer:
 
-"city"	            "country"	        "total_revenue"
+```"city"	            "country"	        "total_revenue"
 "San Francisco"	    "United States"	    1561
 "Sunnyvale"	        "United States"	    991
 "Atlanta"	        "United States"	    853
@@ -29,7 +29,7 @@ Answer:
 "Chicago"	        "United States"	    448
 "Sydney"	        "Australia"	        358
 "Seattle"	        "United States"	    358
-"San Jose"	        "United States"	    262
+"San Jose"	        "United States"	    262```
 
 ![image] https://github.com/Bosun2023/SQL_Project/assets/129349143/0856d746-006f-496d-8368-c5c1535d2516
 
