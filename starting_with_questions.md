@@ -12,7 +12,8 @@ FROM all_sessions
 		GROUP BY city, country
 			HAVING SUM(total_transaction_revenue) IS NOT NULL
 				ORDER BY total_revenue DESC
-				LIMIT 12;```
+				LIMIT 12;
+```
 
 Answer:
 
