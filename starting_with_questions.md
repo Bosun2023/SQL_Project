@@ -119,6 +119,8 @@ Answer:
 SQL Queries:
 
 ```SQL
+-- Calculate total quantity of products sold for each product in different cities and countries,
+-- along with its ranking based on the highest quantity sold within the same city and country.
 WITH product_sales AS (
     SELECT
         session.city,
