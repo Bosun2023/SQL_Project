@@ -40,7 +40,8 @@ Answer:
 
 SQL Queries:
 
-```SQL WITH avg_products_cte AS (
+```SQL
+WITH avg_products_cte AS (
     SELECT DISTINCT
         city,
         country,
@@ -55,18 +56,19 @@ FROM avg_products_cte
 		LIMIT 10;
 ```
 Answer:
-
-"city"	    "country"	        "avg_products_ordered"
-"Madrid"	"Spain"	            10.0000000000000000
-"Salem"	    "United States"    	8.0000000000000000
-"Atlanta"	"United States"	    4.0000000000000000
-"Houston"	"United States"	    2.0000000000000000
-"New York"	"United States"	    1.1666666666666667
-"Palo Alto"	"United States"	    1.00000000000000000000
+```
+"city"	    	"country"	        "avg_products_ordered"
+"Madrid"	"Spain"	           	10.0000000000000000
+"Salem"	    	"United States"    	8.0000000000000000
+"Atlanta"	"United States"	    	4.0000000000000000
+"Houston"	"United States"	    	2.0000000000000000
+"New York"	"United States"	    	1.1666666666666667
+"Palo Alto"	"United States"	    	1.00000000000000000000
 "Dublin"	"Ireland"	        1.00000000000000000000
-"San Jose"	"United States"	    1.00000000000000000000
-"Ann Arbor"	"United States"	    1.00000000000000000000
-"Sunnyvale"	"United States"	    1.00000000000000000000
+"San Jose"	"United States"	   	1.00000000000000000000
+"Ann Arbor"	"United States"	    	1.00000000000000000000
+"Sunnyvale"	"United States"	    	1.00000000000000000000
+```
 
 ![image] https://github.com/Bosun2023/SQL_Project/assets/129349143/7d097cea-7417-4674-999d-153c998f6405
 
