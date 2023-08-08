@@ -242,18 +242,18 @@ Answer:
 
 ```
 "city"	            "country"	        "total_revenue"	    "avg_revenue_per_session"	"session_count"	"revenue_impact"
-"San Francisco"	    "United States"	    1561	            130.0833333333333333	    430	            "Medium"
-"Sunnyvale"	        "United States"	    991	                247.7500000000000000	    343	            "High"
-"Atlanta"	        "United States"	    853	                426.5000000000000000	    62	            "High"
-"Palo Alto"	        "United States"	    608	                202.6666666666666667	    95	            "High"
-"Tel Aviv-Yafo"	    "Israel"	        602	                602.0000000000000000	    45	            "High"
-"New York"	        "United States"	    526	                65.7500000000000000	        602	            "Medium"
+"San Francisco"	    "United States"	    1561	        130.0833333333333333	    430	            "Medium"
+"Sunnyvale"	    "United States"	    991	                247.7500000000000000	    343	            "High"
+"Atlanta"	    "United States"	    853	                426.5000000000000000	    62	            "High"
+"Palo Alto"	    "United States"	    608	                202.6666666666666667	    95	            "High"
+"Tel Aviv-Yafo"	    "Israel"	            602	                602.0000000000000000	    45	            "High"
+"New York"	    "United States"	    526	                65.7500000000000000	    602	            "Medium"
 "Los Angeles"	    "United States"	    479	                239.5000000000000000	    205	            "High"
-"Mountain View"	    "United States"	    479	                59.8750000000000000	        1083	        "Medium"
-"Chicago"	        "United States"	    448	                149.3333333333333333	    178	            "Medium"
-"Sydney"	        "Australia"	        358	                358.0000000000000000	    72	            "High"
-"Seattle"	        "United States"	    358	                358.0000000000000000	    116	            "High"
-"San Jose"	        "United States"	    262	                131.0000000000000000	    228	            "Medium"
+"Mountain View"	    "United States"	    479	                59.8750000000000000	    1083	    "Medium"
+"Chicago"	    "United States"	    448	                149.3333333333333333	    178	            "Medium"
+"Sydney"	    "Australia"	            358	                358.0000000000000000	    72	            "High"
+"Seattle"	    "United States"	    358	                358.0000000000000000	    116	            "High"
+"San Jose"	    "United States"	    262	                131.0000000000000000	    228	            "Medium"
 ```
 
 ![image] https://github.com/Bosun2023/SQL_Project/assets/129349143/c536020f-290b-4ba2-bc91-2faff0bcd059 
