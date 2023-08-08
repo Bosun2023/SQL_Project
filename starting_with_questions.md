@@ -118,6 +118,7 @@ Answer:
 
 SQL Queries:
 
+```SQL
 WITH product_sales AS (
     SELECT
         session.city,
@@ -165,23 +166,26 @@ LEFT JOIN channel_grouping_distribution cd ON ps.city = cd.city AND ps.country =
 	WHERE ps.rank = 1 AND ps.total_quantity > 0
 	ORDER BY ps.city, ps.country, ps.v2_product_name
 	LIMIT 13;
+```
 
 Answer:
 
-"city"	        "country"	    "v2_product_name"	                                                "total_quantity"	"percentage"	        "channel_grouping"	"channel_count"
-"Adelaide"	    "Australia"	    "Google Men's Watershed Full Zip Hoodie Grey"	                    3	                100.0000000000000000	"Organic Search"	1
-"Ahmedabad"	    "India"	        "Google Canvas Tote Natural/Navy"	                                62	                68.8888888888888889	    "Organic Search"	10
-"Akron"	        "United States"	"Google Men's 100% Cotton Short Sleeve Hero Tee Navy"	            13	                100.0000000000000000	"Affiliates"	    1
-"Amsterdam"	    "Netherlands"	"YouTube Hard Cover Journal"	                                    85	                42.7135678391959799	    "Organic Search"	9
-"Ann Arbor"	    "United States"	"Koozie Can Kooler"	                                                253	                37.0967741935483871	    "Referral"	        29
-"Antwerp"	    "Belgium"	    "Colored Pencil Set"	                                            3	                100.0000000000000000	"Organic Search"	2
-"Ashburn"	    "United States"	"Compact Selfie Stick"	                                            5	                62.5000000000000000	    "Direct"	        2
-"Asuncion"	    "Paraguay"	    "Google Men's 100% Cotton Short Sleeve Hero Tee Navy"	            13	                100.0000000000000000	"Direct"	        1
-"Athens"	    "Greece"	    "YouTube Hard Cover Journal"	                                    85	                41.4634146341463415	    "Organic Search"	4
-"Atlanta"	    "United States"	"Nest® Protect Smoke + CO White Wired Alarm-USA"	                126	                30.0000000000000000	    "Referral"	        11
-"Austin"	    "United States"	"Leatherette Journal"	                                            319	                19.0561529271206691	    "Referral"	        39
-"Avon"	        "United States"	"Google Blackout Cap"	                                            189	                94.5000000000000000	    "Organic Search"	2
-"Bandung"	    "Indonesia"	    "YouTube Men's Short Sleeve Hero Tee Charcoal"	                    6	                100.0000000000000000	"Organic Search"	1
+```
+"city"	        "country"	    	"v2_product_name"	                                            "total_quantity"	"percentage"	        "channel_grouping"	"channel_count"
+"Adelaide"	"Australia"	    	"Google Men's Watershed Full Zip Hoodie Grey"	                    3	                100.0000000000000000	"Organic Search"	1
+"Ahmedabad"	"India"	        	"Google Canvas Tote Natural/Navy"	                            62	                68.8888888888888889	"Organic Search"	10
+"Akron"	        "United States"		"Google Men's 100% Cotton Short Sleeve Hero Tee Navy"	            13	                100.0000000000000000	"Affiliates"	    	1
+"Amsterdam"	"Netherlands"		"YouTube Hard Cover Journal"	                                    85	                42.7135678391959799	"Organic Search"	9
+"Ann Arbor"	"United States"		"Koozie Can Kooler"	                                            253	                37.0967741935483871	"Referral"	        29
+"Antwerp"	"Belgium"	   	"Colored Pencil Set"	                                            3	                100.0000000000000000	"Organic Search"	2
+"Ashburn"	"United States"		"Compact Selfie Stick"	                                            5	                62.5000000000000000	"Direct"	        2
+"Asuncion"	"Paraguay"	    	"Google Men's 100% Cotton Short Sleeve Hero Tee Navy"	            13	                100.0000000000000000	"Direct"	        1
+"Athens"	"Greece"	    	"YouTube Hard Cover Journal"	                                    85	                41.4634146341463415	"Organic Search"	4
+"Atlanta"	"United States"		"Nest® Protect Smoke + CO White Wired Alarm-USA"	            126	                30.0000000000000000	"Referral"	        11
+"Austin"	"United States"		"Leatherette Journal"	                                            319	                19.0561529271206691	"Referral"	        39
+"Avon"	        "United States"		"Google Blackout Cap"	                                            189	                94.5000000000000000	"Organic Search"	2
+"Bandung"	"Indonesia"	    	"YouTube Men's Short Sleeve Hero Tee Charcoal"	                    6	                100.0000000000000000	"Organic Search"	1
+```
 
 ![image] https://github.com/Bosun2023/SQL_Project/assets/129349143/b49b0354-201e-46cb-8e63-a0c02880f360 
 
