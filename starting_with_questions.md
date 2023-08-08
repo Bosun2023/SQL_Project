@@ -18,14 +18,14 @@ FROM all_sessions
 Answer:
 
 ```"city"	            "country"	        "total_revenue"
-"San Francisco"	    "United States"	    1561
+"San Francisco"	    	"United States"	    1561
 "Sunnyvale"	        "United States"	    991
 "Atlanta"	        "United States"	    853
 "Palo Alto"	        "United States"	    608
-"Tel Aviv-Yafo"	    "Israel"	        602
+"Tel Aviv-Yafo"	    	"Israel"	        602
 "New York"	        "United States"	    526
-"Mountain View"	    "United States"	    479
-"Los Angeles"	    "United States"	    479
+"Mountain View"	    	"United States"	    479
+"Los Angeles"	    	"United States"	    479
 "Chicago"	        "United States"	    448
 "Sydney"	        "Australia"	        358
 "Seattle"	        "United States"	    358
