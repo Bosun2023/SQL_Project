@@ -22,12 +22,12 @@ Answer:
 "Sunnyvale"	        "United States"	    991
 "Atlanta"	        "United States"	    853
 "Palo Alto"	        "United States"	    608
-"Tel Aviv-Yafo"	    	"Israel"	        602
+"Tel Aviv-Yafo"	    	"Israel"	    602
 "New York"	        "United States"	    526
 "Mountain View"	    	"United States"	    479
 "Los Angeles"	    	"United States"	    479
 "Chicago"	        "United States"	    448
-"Sydney"	        "Australia"	        358
+"Sydney"	        "Australia"	    358
 "Seattle"	        "United States"	    358
 "San Jose"	        "United States"	    262
 ```
