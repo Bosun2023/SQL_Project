@@ -204,7 +204,9 @@ Answer:
 
 SQL Queries:
 
-
+```SQL
+-- Calculate revenue-related summary metrics for each city and country combination.
+-- This includes total revenue, average revenue per session, and the count of distinct sessions.
 WITH revenue_summary AS (
     SELECT
         city,
@@ -216,6 +218,9 @@ WITH revenue_summary AS (
     WHERE city IS NOT NULL AND country IS NOT NULL
     GROUP BY city, country
 )
+
+-- Select and present revenue summary metrics along with a classification of revenue impact.
+-- The classification is based on the average revenue per session.
 SELECT
     city,
     country,
@@ -231,9 +236,11 @@ FROM revenue_summary
 WHERE total_revenue IS NOT NULL AND avg_revenue_per_session IS NOT NULL
 ORDER BY total_revenue DESC
 	LIMIT 12;
+```
 
 Answer:
 
+```
 "city"	            "country"	        "total_revenue"	    "avg_revenue_per_session"	"session_count"	"revenue_impact"
 "San Francisco"	    "United States"	    1561	            130.0833333333333333	    430	            "Medium"
 "Sunnyvale"	        "United States"	    991	                247.7500000000000000	    343	            "High"
@@ -247,6 +254,7 @@ Answer:
 "Sydney"	        "Australia"	        358	                358.0000000000000000	    72	            "High"
 "Seattle"	        "United States"	    358	                358.0000000000000000	    116	            "High"
 "San Jose"	        "United States"	    262	                131.0000000000000000	    228	            "Medium"
+```
 
 ![image] https://github.com/Bosun2023/SQL_Project/assets/129349143/c536020f-290b-4ba2-bc91-2faff0bcd059 
 
