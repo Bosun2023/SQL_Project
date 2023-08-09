@@ -1,5 +1,6 @@
 What issues will you address by cleaning the data?
 
+```
 **Answer: ** The issues that will be addressed to clean up the data are highlighted below.
   1.	Data Type Adjustments and Conversion:
 •	Data types of various columns will be converted to appropriate ones, such as numeric, varchar, and interval.
@@ -20,112 +21,148 @@ What issues will you address by cleaning the data?
   6.	Data Validation:
 •	Unique and non-null values in specific columns will be checked to guarantee data quality.
 These steps will collectively enhance the overall quality, consistency, and integrity of the data, making it more suitable for future analysis and reporting.
-
+```
 
 Queries:
 Below, provide the SQL queries you used to clean your data.
   
-  --I created a backup of the source database by right-clicking the ecommerce database and clicking on Backup...
+--I created a backup of the source database by right-clicking the ecommerce database and clicking on Backup...
 
+```SQL
 SELECT * FROM all_sessions;
+```
 
 --To convert the data type of column "fullVisitorId" to varying character
 
+```SQL
 ALTER TABLE all_sessions
 	ALTER COLUMN "fullVisitorId" TYPE varchar;
+```
 
 --To convert "fullVisitorId" from camel case to snake case 
 
+```SQL
 ALTER TABLE all_sessions
 	RENAME COLUMN "fullVisitorId" TO "full_visitor_id";
+```
 
 --To convert "channelGrouping" from camel case to snake case 
 
+```SQL
 ALTER TABLE all_sessions
 	RENAME COLUMN "channelGrouping" TO "channel_grouping";
+```
 
 --To convert the data type of column "time" to interval
 
+```SQL
 ALTER TABLE all_sessions
     ALTER COLUMN "time" TYPE interval USING ("time" || ' seconds'):: interval;
+```
  
 --To replace '(not set)' in column "country" to NULL
 
+```SQL
 UPDATE all_sessions
 	SET country =
 		CASE
 			WHEN country = '(not set)' THEN NULL
 			ELSE country
 		END;
+```
 
 --To replace '(not set)' and 'not available in demo dataset' in column "city" to NULL
 
+```SQL
 UPDATE all_sessions
 	SET city =	
 		CASE
 			WHEN city IN ('(not set)', 'not available in demo dataset') THEN NULL
 			ELSE city
 		END;
+```
 
 --To convert the data type of column "totalTransactionRevenue" to bigint
 
+```SQL
 ALTER TABLE all_sessions
 	ALTER COLUMN "totalTransactionRevenue" TYPE bigint
 	USING ("totalTransactionRevenue"::bigint);
+```
 
 --To convert "totalTransactionRevenue" from camel case to snake case 
 
+```SQL
 ALTER TABLE all_sessions
 	RENAME COLUMN "totalTransactionRevenue" TO "total_transaction_revenue";
+```
 
 --To get the appropriate total_transaction_revenue, divide by 1000000
 
+```SQL
 UPDATE all_sessions
 SET total_transaction_revenue = total_transaction_revenue / 1000000;
+```
 
 --To convert the data type of column "transactions" to numeric
 
+```SQL
 ALTER TABLE all_sessions
 	ALTER COLUMN transactions TYPE numeric
 	USING (transactions::numeric)
+```
 
 --To update "timeOnSite" to time format
 
+```SQL
 UPDATE all_sessions
 	SET "timeOnSite" = ("timeOnSite" || ' seconds')::interval;
+```
 
 --To convert "timeOnSite" from camel case to snake case 
 
+```SQL
 ALTER TABLE all_sessions
 	RENAME COLUMN "timeOnSite" TO "time_on_site";
+```
 
 --To convert column "pageviews" to bigint
 
+```SQL
 ALTER TABLE all_sessions
 	ALTER COLUMN pageviews TYPE bigint
 	USING (transactions::bigint);
+```
 
 --To convert column "sessionQualityDim" to smallint
 
+```SQL
 ALTER TABLE all_sessions
 	ALTER COLUMN "sessionQualityDim" TYPE smallint
 	USING (transactions::smallint);
+```
 
 --To convert column "sessionQualityDim" from camel case to snake case
 
+```SQL
 ALTER TABLE all_sessions
 	RENAME COLUMN "sessionQualityDim" TO "session_quality_dim";
+```
 
 --To convert the data type of column "date" to date 
 
+```SQL
 ALTER TABLE all_sessions
 	ALTER COLUMN "date" TYPE date
 	USING ("date"::date);
+```
 
 --To convert the data type of column "visitId" to varying character
 
+```SQL
 ALTER TABLE all_sessions
 	ALTER COLUMN "visitId" TYPE varchar;
+```
 
 --To convert column "visitId" from camel case to snake case
 
@@ -426,134 +463,181 @@ ALTER TABLE analytics
 
 --To convert data type of column "pageviews" to bigint
 
+```SQL
 ALTER TABLE analytics
     ALTER COLUMN  "pageviews" TYPE bigint
     	USING ( "pageviews"::bigint);
-
+---
 --To update column "timeonsite" to time format
 
+```SQL
 UPDATE analytics
 	SET "timeonsite" = ("timeonsite" || ' seconds')::interval;
+```
 
 --To convert column "timeonsite" to snake case 
 
+```SQL
 ALTER TABLE analytics
 	RENAME COLUMN "timeonsite" TO "time_on_site";
+```
 
 --To convert data type of column "bounces" to integer
 
+```SQL
 ALTER TABLE analytics
     ALTER COLUMN  "bounces" TYPE integer
     	USING ( "bounces"::integer);
+```
 
 --To convert data type of column "revenue" to numeric
 
+```SQL
 ALTER TABLE analytics
     ALTER COLUMN revenue TYPE numeric
     	USING (revenue::numeric);
+```
 
 --To get the appropriate revenue, divide by 1000000
 
+```SQL
 UPDATE analytics
 SET revenue = revenue / 1000000;
+```
 
 --To convert data type of column "unit_price" to numeric
 
+```SQL
 ALTER TABLE analytics
     ALTER COLUMN unit_price TYPE numeric
     	USING (unit_price::numeric);
+```
 
 --To get the appropriate unit_price, divide by 1000000
 
+```SQL
 UPDATE analytics
 SET unit_price = unit_price / 1000000;
+```
 
 --To remove duplicate data from table analytics
 
+```SQL
 SELECT DISTINCT *
 FROM analytics;
+```
 
 --To clean missing data from column "units_sold"
 
+```SQL
 SELECT units_sold
 FROM analytics
 	WHERE units_sold IS NOT NULL
+```
 
 --To validate the cleaned analytics table 
 
+```SQL
 SELECT * 
 FROM analytics;
-
+```
 -------------------------------------
 
+```SQL
 SELECT * FROM products
+```
 
 --To convert data type of column "SKU" to varying character
 
+```SQL
 ALTER TABLE products
 	ALTER COLUMN "SKU" TYPE varchar;
+```
 
 --To convert column "SKU" to snake case
 
+```SQL
 ALTER TABLE products
 	RENAME COLUMN "SKU" TO "product_sku";
+```
 	
 --To convert data type of column "orderedQuantity" to bigint
 
+```SQL
 ALTER TABLE products
     ALTER COLUMN "orderedQuantity" TYPE bigint
     	USING ("orderedQuantity"::bigint);
+```
 
 --To convert column "orderedQuantity" from camel case to snake case 
 
+```SQL
 ALTER TABLE products
 	RENAME COLUMN "orderedQuantity" TO "ordered_quantity";
+```
 
 --To convert data type of column "stockLevel" to bigint
 
+```SQL
 ALTER TABLE products
     ALTER COLUMN "stockLevel" TYPE bigint
     	USING ("stockLevel"::bigint);
+```
 
 --To convert column "stockLevel" from camel case to snake case 
 
+```SQL
 ALTER TABLE products
 	RENAME COLUMN "stockLevel" TO "stock_level";
+```
 	
 --To update "restockingLeadTime" to time format
 
+```SQL
 UPDATE products
 SET "restockingLeadTime" = ("restockingLeadTime" || ' hours')::interval;
+```
 
 --To convert column "restockingLeadTime" from camel case to snake case 
 
+```SQL
 ALTER TABLE products
 	RENAME COLUMN "restockingLeadTime" TO "restocking_lead_time";
+```
 
 --To convert data type of column "sentimentScore" to double precision
 
+```SQL
 ALTER TABLE products
     ALTER COLUMN "sentimentScore" TYPE double precision
     	USING ("sentimentScore"::double precision);
+```
 
 --To convert column "sentimentScore" from camel case to snake case 
 
+```SQL
 ALTER TABLE products
 	RENAME COLUMN "sentimentScore" TO "sentiment_score";
+```
 
 --To convert data type of column "sentimentMagnitude" to double precision
 
+```SQL
 ALTER TABLE products
     ALTER COLUMN "sentimentMagnitude" TYPE double precision
     	USING ("sentimentMagnitude"::double precision);
+```
 
 --To convert column "sentimentMagnitude" from camel case to snake case 
 
+```SQL
 ALTER TABLE products
 	RENAME COLUMN "sentimentMagnitude" TO "sentiment_magnitude";
+```
 
 --To make sure that column "product_sku" is unique and not NULL
 
+```SQL
 SELECT product_sku
 FROM products
 WHERE product_sku IS NULL OR product_sku IN (
@@ -562,39 +646,52 @@ WHERE product_sku IS NULL OR product_sku IN (
     GROUP BY product_sku
     HAVING COUNT(*) > 1
 );
+```
 
 --To make column "product_sku" a primary key in table products
 
+```SQL
 ALTER TABLE products
 	ADD PRIMARY KEY (product_sku);
+```
 
 --To validate cleaned products table 
 
+```SQL
 SELECT * 
 FROM products; 
-
+```
 ----------------------------------
 
+```SQL
 SELECT * FROM sales_by_sku
+```
 
 --To convert data type of column "productSKU" to varying character
 
+```SQL
 ALTER TABLE sales_by_sku
 	ALTER COLUMN "productSKU" TYPE varchar;
+```
 
 --To convert column "productSKU" from camel case to snake case
 
+```SQL
 ALTER TABLE sales_by_sku
 	RENAME COLUMN "productSKU" TO "product_sku";
+```
 	
 --To convert data type of column "total_ordered" to bigint
 
+```SQL
 ALTER TABLE sales_by_sku
     ALTER COLUMN "total_ordered" TYPE bigint
     	USING ("total_ordered"::bigint);
+```
 
 --To make sure that column "product_sku" is unique and not NULL
 
+```SQL
 SELECT product_sku
 FROM sales_by_sku
 WHERE product_sku IS NULL OR product_sku IN (
@@ -603,88 +700,119 @@ WHERE product_sku IS NULL OR product_sku IN (
     GROUP BY product_sku
     HAVING COUNT(*) > 1
 );
+```
 
 --To make column "product_sku" a primary key in table products
 
+```SQL
 ALTER TABLE sales_by_sku
 	ADD PRIMARY KEY (product_sku);
+```
 	
 --To validate cleaned sales_by_sku table 
 
+```SQL
 SELECT * 
 FROM sales_by_sku; 
-
+```
 -----------------------------------
 
+```SQL
 SELECT * FROM sales_report
+```
 
 --To convert data type of column "productSKU" to varying character
 
+```SQL
 ALTER TABLE sales_report
 	ALTER COLUMN "productSKU" TYPE varchar;
+```
 
 --To convert column "productSKU" from camel case to snake case
 
+```SQL
 ALTER TABLE sales_report
 	RENAME COLUMN "productSKU" TO "product_sku";
+```
 
 --To convert data type of column "total_ordered" to bigint
 
+```SQL
 ALTER TABLE sales_report
     ALTER COLUMN "total_ordered" TYPE bigint
     	USING ("total_ordered"::bigint);
+```
 
 --To convert data type of column "stockLevel" to bigint
 
+```SQL
 ALTER TABLE sales_report
     ALTER COLUMN "stockLevel" TYPE bigint
     	USING ("stockLevel"::bigint);
+```
 
 --To convert column "stockLevel" from camel case to snake case
 
+```SQL
 ALTER TABLE sales_report
 	RENAME COLUMN "stockLevel" TO "stock_level";
+```
 
 --To update "restockingLeadTime" to time format
 
+```SQL
 UPDATE sales_report
 SET "restockingLeadTime" = ("restockingLeadTime" || ' hours')::interval;
+```
 
 --To convert column "restockingLeadTime" from camel case to snake case 
 
+```SQL
 ALTER TABLE sales_report
 	RENAME COLUMN "restockingLeadTime" TO "restocking_lead_time";
+```
 
 --To convert data type of column "sentimentScore" to double precision
 
+```SQL
 ALTER TABLE sales_report
 	ALTER COLUMN "sentimentScore" TYPE double precision
     	USING ("sentimentScore"::double precision);
+```
 
 --To convert column "sentimentScore" from camel case to snake case 
 
+```SQL
 ALTER TABLE sales_report
 	RENAME COLUMN "sentimentScore" TO "sentiment_score";
+```
 
 --To convert data type of column "sentimentMagnitude" to double precision
 
+```SQL
 ALTER TABLE sales_report
     ALTER COLUMN "sentimentMagnitude" TYPE double precision
     	USING ("sentimentMagnitude"::double precision);
+```
 
 --To convert column "sentimentMagnitude" from camel case to snake case 
 
+```SQL
 ALTER TABLE sales_report
 	RENAME COLUMN "sentimentMagnitude" TO "sentiment_magnitude";
+```
 
 --To convert the data type of column "ratio" to double precision
 
+```SQL
 ALTER TABLE sales_report
     ALTER COLUMN "ratio"TYPE double precision
     	USING ("ratio"::double precision);
+```
 
 --To make sure that column "product_sku" is unique and not NULL
 
+```SQL
 SELECT product_sku
 FROM sales_report
 WHERE product_sku IS NULL OR product_sku IN (
@@ -693,15 +821,19 @@ WHERE product_sku IS NULL OR product_sku IN (
     GROUP BY product_sku
     HAVING COUNT(*) > 1
 );
+```
 
 --To make column "product_sku" a primary key in table sales_report
 
+```SQL
 ALTER TABLE sales_report
 	ADD PRIMARY KEY (product_sku);
+```
 
 --To validate cleaned sales_report table 
 
+```SQL
 SELECT * 
 FROM sales_report; 
-
+```
 ---------------------------------------
