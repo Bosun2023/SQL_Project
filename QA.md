@@ -30,88 +30,98 @@ Describe your QA process and include the SQL queries used to execute it.
 --1. Data Profiling and Completeness:
 --Check for missing values and data types:
 
+```SQL
 SELECT table_name, column_name, data_type, COUNT(*) AS total_rows,
        COUNT(*) - COUNT(column_name) AS missing_values
 FROM information_schema.columns
 WHERE table_name IN ('all_sessions', 'analytics', 'products', 'sales_by_sku', 'sales_report')
 GROUP BY table_name, column_name, data_type;
+```
 
 --------------------------
 
 --2. Data Redundancy and Duplication:
 --Validate that there are no duplicate entries for the same full_visitor_id within the same date partition in the all_sessions table:
 
-
+```SQL
 SELECT date, full_visitor_id, COUNT(*) AS duplicate_count
 FROM all_sessions
 GROUP BY date, full_visitor_id
 HAVING COUNT(*) > 1;
-
+```
 
 --The results of the query showed that there are duplicates.
 --To investigate why there are duplicates, I viewed duplicate entries by showing all columns for duplicate entries of a specific 'full_visitor_id' on a particular 'date':
 
+```SQL
 SELECT *
 FROM all_sessions
 WHERE full_visitor_id = '3292284856612897209'
     AND "date" = '2016-09-18';
-
+```
 -- Then, I identified unique values by checking unique values of relevant columns for duplicate entries.
 
+```SQL
 SELECT DISTINCT channel_grouping,"time",v2_product_name, time_on_site, pageviews
 FROM all_sessions
 WHERE full_visitor_id = '3292284856612897209'
     AND date = '2016-09-18';
-
+```
 ----------------------------------
 
 --3. Data Relationships and Referential Integrity:
 --Validate foreign key relationships:
 
+```SQL
 SELECT COUNT(*) AS orphan_records
 FROM all_sessions a
 LEFT JOIN products p ON a.product_sku = p.product_sku
 WHERE p.product_sku IS NULL;
-
+```
 ----------------------------------
 
 --4. Data Formats and Types:
 --To identify distinct dates that do not match the 'YYYY-MM-DD' pattern or are NULL:
 
+```SQL
 SELECT DISTINCT date
 FROM all_sessions
 WHERE NOT TO_CHAR(date, 'YYYY-MM-DD') ~ '^\d{4}-\d{2}-\d{2}$'
    OR date IS NULL;
-   
+```   
 ----------------------------------
 
 --5. Calculations and Aggregations:
 --Validate aggregations:
 
+```SQL
 SELECT channel_grouping, AVG(TIME '00:00:00' + time_on_site::INTERVAL) AS avg_time_on_site
 FROM all_sessions
 GROUP BY channel_grouping
 HAVING AVG(TIME '00:00:00' + time_on_site::INTERVAL) IS NOT NULL;
-
+```
 ----------------------------------
 
 --6. Data Consistency and Accuracy:
 --Check if the total revenue in the analytics table matches the sum of individual revenue values:
 
+```SQL
 SELECT SUM(revenue) AS total_revenue_in_table,
        (SELECT SUM(revenue) FROM analytics) AS sum_of_individual_revenues
 FROM analytics;
-
+```
 ----------------------------------
 
 --7. Data Completeness and Integrity:
 --Validate that all product_sku values in the sales_by_sku table exist in the products table:
 
+```SQL
 SELECT COUNT(*) AS missing_products
 FROM sales_by_sku s
 WHERE NOT EXISTS (
     SELECT 1 FROM products p WHERE s.product_sku = p.product_sku
 );
+```
 --The result is 8, which indicates the need to investigate and reconcile the missing product SKUs.
 
 ----------------------------------
@@ -119,12 +129,13 @@ WHERE NOT EXISTS (
 --8. Data Distribution:
 --Analyze the distribution of revenue among different product categories:
 
+```SQL
 SELECT
-    a.v2_product_category,
-    COUNT(*) AS total_products,
-    SUM(an.revenue) AS total_revenue,
-    AVG(an.revenue) AS avg_revenue,
-    STDDEV(an.revenue) AS revenue_stddev
+    a.v2_product_category,                             -- Product category
+    COUNT(*) AS total_products,                        -- Total number of products in category
+    SUM(an.revenue) AS total_revenue,                  -- Total revenue from products in category
+    AVG(an.revenue) AS avg_revenue,                    -- Average revenue per product in category
+    STDDEV(an.revenue) AS revenue_stddev               -- Standard deviation of revenue in category
 FROM all_sessions a
 JOIN analytics an ON a.full_visitor_id = an.full_visitor_id
 WHERE a.v2_product_category IS NOT NULL
@@ -134,28 +145,30 @@ HAVING
     AND SUM(an.revenue) IS NOT NULL
     AND AVG(an.revenue) IS NOT NULL
 ORDER BY total_revenue DESC;
-
+```
 ----------------------------------
 
 --9. Data Trends:
 --Identify the top product categories by average sentiment score:
 
+```SQL
 SELECT a.v2_product_category, AVG(p.sentiment_score) AS avg_sentiment_score
 FROM all_sessions a
 JOIN products p ON a.product_sku = p.product_sku
-GROUP BY a.v2_product_category
-ORDER BY avg_sentiment_score DESC;
-
+    GROUP BY a.v2_product_category
+    ORDER BY avg_sentiment_score DESC;
+```
 ----------------------------------
 
 --10. Data Evolution:
 --Compare the total ordered quantity in the sales_by_sku table with the ordered quantity in the products table over time:
 
+```SQL
 SELECT s.product_sku, p.name, s.total_ordered, p.ordered_quantity
 FROM sales_by_sku s
 JOIN products p ON s.product_sku = p.product_sku
 ORDER BY s.product_sku;
-
+```
 ----------------------------------
 
 
