@@ -28,7 +28,7 @@ QA Process:
 Describe your QA process and include the SQL queries used to execute it.
 
 --1. Data Profiling and Completeness:
---Check for missing values and data types:
+--Checked for missing values and data types:
 
 ```SQL
 SELECT table_name, column_name, data_type, COUNT(*) AS total_rows,
@@ -41,7 +41,7 @@ GROUP BY table_name, column_name, data_type;
 --------------------------
 
 --2. Data Redundancy and Duplication:
---Validate that there are no duplicate entries for the same full_visitor_id within the same date partition in the all_sessions table:
+--Validated that there are no duplicate entries for the same full_visitor_id within the same date partition in the all_sessions table:
 
 ```SQL
 SELECT date, full_visitor_id, COUNT(*) AS duplicate_count
@@ -70,7 +70,7 @@ WHERE full_visitor_id = '3292284856612897209'
 ----------------------------------
 
 --3. Data Relationships and Referential Integrity:
---Validate foreign key relationships:
+--Validated foreign key relationships:
 
 ```SQL
 SELECT COUNT(*) AS orphan_records
@@ -81,7 +81,7 @@ WHERE p.product_sku IS NULL;
 ----------------------------------
 
 --4. Data Formats and Types:
---To identify distinct dates that do not match the 'YYYY-MM-DD' pattern or are NULL:
+--To identified distinct dates that do not match the 'YYYY-MM-DD' pattern or are NULL:
 
 ```SQL
 SELECT DISTINCT date
@@ -92,7 +92,7 @@ WHERE NOT TO_CHAR(date, 'YYYY-MM-DD') ~ '^\d{4}-\d{2}-\d{2}$'
 ----------------------------------
 
 --5. Calculations and Aggregations:
---Validate aggregations:
+--Validated aggregations:
 
 ```SQL
 SELECT channel_grouping, AVG(TIME '00:00:00' + time_on_site::INTERVAL) AS avg_time_on_site
@@ -103,7 +103,7 @@ HAVING AVG(TIME '00:00:00' + time_on_site::INTERVAL) IS NOT NULL;
 ----------------------------------
 
 --6. Data Consistency and Accuracy:
---Check if the total revenue in the analytics table matches the sum of individual revenue values:
+--Checked if the total revenue in the analytics table matches the sum of individual revenue values:
 
 ```SQL
 SELECT SUM(revenue) AS total_revenue_in_table,
@@ -113,7 +113,7 @@ FROM analytics;
 ----------------------------------
 
 --7. Data Completeness and Integrity:
---Validate that all product_sku values in the sales_by_sku table exist in the products table:
+--Validated that all product_sku values in the sales_by_sku table exist in the products table:
 
 ```SQL
 SELECT COUNT(*) AS missing_products
@@ -127,7 +127,7 @@ WHERE NOT EXISTS (
 ----------------------------------
 
 --8. Data Distribution:
---Analyze the distribution of revenue among different product categories:
+--Analyzed the distribution of revenue among different product categories:
 
 ```SQL
 SELECT
@@ -149,7 +149,7 @@ ORDER BY total_revenue DESC;
 ----------------------------------
 
 --9. Data Trends:
---Identify the top product categories by average sentiment score:
+--Identified the top product categories by average sentiment score:
 
 ```SQL
 SELECT a.v2_product_category, AVG(p.sentiment_score) AS avg_sentiment_score
@@ -161,7 +161,7 @@ JOIN products p ON a.product_sku = p.product_sku
 ----------------------------------
 
 --10. Data Evolution:
---Compare the total ordered quantity in the sales_by_sku table with the ordered quantity in the products table over time:
+--Compared the total ordered quantity in the sales_by_sku table with the ordered quantity in the products table over time:
 
 ```SQL
 SELECT s.product_sku, p.name, s.total_ordered, p.ordered_quantity
